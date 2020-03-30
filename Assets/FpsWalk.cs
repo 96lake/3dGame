@@ -7,6 +7,7 @@ public class FpsWalk : MonoBehaviour
     Vector3 playerAxis;
     Vector3 playerRotAxis;
     Vector3 headRotAxis;
+    public GameObject laserpoint;
     int weapon;
     public CharacterController charac;
     public GameObject[] prefabProjectile;
@@ -35,19 +36,29 @@ public class FpsWalk : MonoBehaviour
         if (Input.GetKey(KeyCode.Alpha1)) weapon = 1;
         if (Input.GetKey(KeyCode.Alpha2)) weapon = 2;
         if (Input.GetKey(KeyCode.Alpha3)) weapon = 3;
-        if (Input.GetKey(KeyCode.Alpha4)) weapon = 4;
-        if (Input.GetKey(KeyCode.Alpha5)) weapon = 5;
-        if (Input.GetKey(KeyCode.Alpha6)) weapon = 6;
-        if (Input.GetKey(KeyCode.Alpha7)) weapon = 7;
-        if (Input.GetKey(KeyCode.Alpha8)) weapon = 8;
-        if (Input.GetKey(KeyCode.Alpha9)) weapon = 9;
 
         if (Input.GetButtonDown("Fire1"))
         {
-            GameObject obj = Instantiate(prefabProjectile[weapon-1], transform.position+head.transform.forward, transform.rotation);
-            obj.GetComponent<Rigidbody>().AddForce(head.transform.forward * 1000+ Vector3.up*200);
+            GameObject obj;
+            if (weapon == 2) obj = Instantiate(prefabProjectile[weapon - 1], transform.position + head.transform.forward*3 + new Vector3(0, 0.5f, 0), transform.rotation);
+            else obj = Instantiate(prefabProjectile[weapon-1], transform.position+head.transform.forward+new Vector3(0, 0.5f, 0), transform.rotation);
+            /*obj.GetComponent<Rigidbody>().AddForce(head.transform.forward * 1000+ Vector3.up*200);
             obj.GetComponent<Rigidbody>().AddRelativeTorque(Vector3.right*500, ForceMode.Impulse);
-            Destroy(obj, 3);
+            Destroy(obj, 3);*/
+            if (obj.GetComponent<guidedBomb>()) {
+                obj.GetComponent<guidedBomb>().target = laserpoint;
+            }
+            if(weapon != 3) obj.GetComponent<Rigidbody>().AddForce(head.transform.forward * 1000);
+            else obj.GetComponent<Rigidbody>().AddForce(head.transform.forward * 10);
+
+
         }
+
+        if (Physics.Raycast(transform.position, head.transform.forward, out RaycastHit hit))
+        {
+            laserpoint.transform.position = hit.point;
+        }
+        else laserpoint.transform.position = transform.position + head.transform.forward * 1000;
+
     }
 }

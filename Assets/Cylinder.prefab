@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5710815201060060934}
   - component: {fileID: -8529645062280540830}
   - component: {fileID: -5062376315332217976}
+  - component: {fileID: -1793739056844751173}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -60,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: d7a3e0481d24c9f4d96987e474bd67fc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -111,3 +112,18 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &-1793739056844751173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8104363921588188780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a04d1dffadf43c489b2ccab9e3709c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bombForce: 1000
+  explosion: {fileID: 8149974908034649317, guid: 51be642fcf644494ea4da352601010ca,
+    type: 3}
