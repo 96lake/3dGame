@@ -10,6 +10,10 @@
 /[Ll]ogs/
 /[Mm]emoryCaptures/
 
+
+/[Aa]ssets/Cartoon_Texture_Pack/
+
+
 # Never ignore Asset meta data
 !/[Aa]ssets/**/*.meta
 
@@ -57,16 +61,3 @@ sysinfo.txt
 
 # Crashlytics generated file
 crashlytics-build.properties
-
-Assets/Bizulka
-Assets/Cartoon_Texture_Pack
-Assets/RPGPP_LT
-Assets/Scenes
-
-Library/APIUpdater
-Library/Artifacts
-Library/PackageCache
-Library/ScriptAssemblies
-Library/ShaderCache
-Library/StateCache
-Library/TempArtifacts
